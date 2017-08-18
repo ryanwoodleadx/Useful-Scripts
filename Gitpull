@@ -8,3 +8,4 @@ for each_repo in ${repos[@]:1} ; do
   cd $DIRECTORY$each_repo
   git pull
 done
+exit 0
