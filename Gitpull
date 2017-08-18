@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIRECTORY="/opt/git-repos/"
+declare -a repos=( `find $DIRECTORY -maxdepth 1 -type d -exec basename {} \;` )
+
+for each_repo in ${repos[@]:1} ; do
+  echo -e "\e[32;1m$each_repo\e[0m"
+  cd $DIRECTORY$each_repo
+  git pull
+done
