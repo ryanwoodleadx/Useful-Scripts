@@ -3,8 +3,12 @@
 import boto3
 
 MY_AWS_ID = '904298664928'
-REGION = 'eu-west-1'
+#MY_AWS_ID = '644376117491'
+
+#REGION = 'eu-west-1'
+REGION = 'eu-west-2'
 FORMAT_STRING = "%-28s\t%-20s\t%-9s\t%-21s\t%-4s\t%-8s\t%s"
+#manual_instance_ids = ["i-00664e81036710a1b"]
 
 def get_instance_ids(owner, region):
   responses = []
@@ -35,6 +39,7 @@ def get_instance_attr(owner, region, inst_ids, inst_names):
 
   i = 0
   for instance in inst_ids:
+  #for instance in manual_instance_ids:
     for block in client.describe_instance_attribute(InstanceId=instance, Attribute='blockDeviceMapping')['BlockDeviceMappings']:
       volume_id = block['Ebs']['VolumeId']
       for vol_attr in client.describe_volumes(Filters=[{'Name': 'volume-id', 'Values': [volume_id]}])['Volumes']:

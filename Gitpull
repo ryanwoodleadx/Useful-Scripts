@@ -10,7 +10,7 @@ for each_repo in ${lx_repos[@]:1} ; do
   git pull
 done
 for each_repo in ${mt_repos[@]:1} ; do
-  echo -e "\e[37;1m$each_repo\e[0m"
+  echo -e "\e[31;1m$each_repo\e[0m"
   cd "$DIRECTORY/mt/$each_repo"
   git pull
 done
