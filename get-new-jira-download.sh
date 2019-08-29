@@ -29,7 +29,7 @@ function upload_to_s3 () {
   check_last_command "Upload to S3"
 }
 
-version="8.2.1"
+version="8.3.3"
 download_dir="/tmp"
 bucket_loc="com.leadx.puppet/jira"
 filename="atlassian-jira-software-$version.tar"
